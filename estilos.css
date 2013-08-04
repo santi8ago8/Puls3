@@ -99,6 +99,20 @@ nav ul li a {
 #contenido .item {
     background: white;
     border-bottom: 3px #22BCE0 solid;
+    margin-bottom: 3em;
+    min-height: 128px;
+    position: relative;
+}
+
+#contenido .item .votacion{
+    position: absolute;
+    background:  white;
+    border-radius: 0 0 .5em .5em;
+    margin: 3px 0 0 0;
+    padding: 0.5em 0;
+    text-align: center;
+    top:100%;
+    width: 96px;
 }
 
 #contenido .item .datos_item .tag_item{
