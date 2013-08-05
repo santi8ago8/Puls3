@@ -1,4 +1,10 @@
-
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot');
+    src: url('fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('fonts/icomoon.woff') format('woff'), url('fonts/icomoon.ttf') format('truetype'), url('fonts/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 a {
     color: #DD4f24;
@@ -40,12 +46,19 @@ header #avatar figcaption {
     background: #22BCE0;
     float: right;
     height: 50px;
+    line-height: 50px;
+}
+header #avatar figcaption:after {
+    font-family: icomoon;
+    content: "\e001";
+    font-size: .7em;
+    opacity: 0.7;
 }
 
 header #avatar img {
     float: left;
     width: 50px;
-    padding: 0 2px;
+    padding: 0 0;
 }
 
 header #logo img {
@@ -74,14 +87,31 @@ nav ul li#fechita_nav a {
     padding: 0.5em 0.5em;
 
 }
-
-nav ul li#publicar_nav {
-    float: right;
-    margin-right: 0;
+nav ul li#fechita_nav a:after {
+    content: "\e000";
+    font-family: icomoon;
+    opacity: 0.8;
 }
 
+nav ul li#publicar_nav {
+    background: #dd4f24;
+    float: right;
+    margin-right: 0;
+    padding-right: 2em;
+    position:  relative;
+}
+nav ul li#publicar_nav:after{
+    color: rgba(255,255,255,.75);
+    content: "\e003";
+    font-family: icomoon;
+    font-size: 1.8em;
+    position: absolute;
+    top:3px
+}
 nav ul li#publicar_nav a {
     background: #DD4f24;
+    display: inline-block;
+
     padding: 0.5em 1em;
 }
 
@@ -104,23 +134,21 @@ nav ul li a {
     position: relative;
 }
 
-#contenido .item .votacion{
-    position: absolute;
-    background:  white;
-    border-radius: 0 0 .5em .5em;
-    margin: 3px 0 0 0;
-    padding: 0.5em 0;
-    text-align: center;
-    top:100%;
-    width: 96px;
-}
-
-#contenido .item .datos_item .tag_item{
+#contenido .item .datos_item .tag_item {
     background: #22BCE0;
     border-radius: .5em;
     color: white;
     padding: .2em .5em;
     text-decoration: none;
+}
+#contenido .item .datos_item .guardar_item{
+    text-decoration: none;
+}
+#contenido .item .datos_item .guardar_item:after{
+    color:#fd5;
+    content: "\e004";
+    font-family: icomoon;
+
 }
 
 #contenido .item p {
@@ -147,4 +175,35 @@ nav ul li a {
     color: #444;
 
     text-decoration: none;
+}
+
+#contenido .item .votacion {
+    position: absolute;
+    background: white;
+    border-radius: 0 0 .5em .5em;
+    margin: 3px 0 0 0;
+    padding: 0.5em 0;
+    text-align: center;
+    top: 100%;
+    width: 96px;
+}
+
+#contenido .item .votacion a{
+    text-decoration: none;
+}
+#contenido .item .votacion .down:after,
+#contenido .item .votacion .up:after{
+    font-family: icomoon;
+    font-size: 1.5em;
+    vertical-align: bottom;
+}
+
+#contenido .item .votacion .down:after {
+    content: "\e001";
+    color:red;
+}
+
+#contenido .item .votacion .up:after {
+    content: "\e002";
+    color:green;
 }
