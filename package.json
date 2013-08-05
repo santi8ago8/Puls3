@@ -10,5 +10,9 @@
         "jade": "*",
         "stylus": "*",
         "mongoose": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/santi8ago8/Puls3.git"
     }
 }
