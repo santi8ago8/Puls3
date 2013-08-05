@@ -1,11 +1,17 @@
-@media screen and (min-width:768px) {
+@media screen and (min-width:850px) {
+    article{
+        width: 50%;
+        display: inline-block;
+
+    }
+
     body {
         margin: 0 auto;
         max-width: 1200px;
     }
 
     #bienvenida {
-        display: block;
+     /*   display: block; */
         float: right;
         margin-right: 2%;
         width: 25%;
@@ -35,6 +41,8 @@
     }
 
     #contenido {
-        width: 70%;
+
     }
+
+
 }
