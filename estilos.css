@@ -65,6 +65,17 @@ header #logo img {
     width: 80px;
 }
 
+footer{
+    background: #434343;
+    color: #A7A7A7;
+    padding: 1em 0;
+    text-align: center;
+    width: 100%;
+}
+footer p{
+    margin: 0;
+}
+
 nav {
     background: #878787;
     font-size: 0.9em;
@@ -121,7 +132,9 @@ nav ul li a {
     text-decoration: none;
     padding: 0.5em 0;
 }
-
+#bienvenida{
+    display: none;
+}
 #contenido {
     margin: 1em;
 }
@@ -148,6 +161,7 @@ nav ul li a {
     background: #878787;
     border-radius: 4px;
     color:white;
+    margin: 0 0 0 2em;
     padding: 4px;
     text-decoration: none;
 }
