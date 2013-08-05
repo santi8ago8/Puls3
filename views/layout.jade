@@ -1,7 +1,38 @@
-doctype 5
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+!!!5
+html(lang='es')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport',content='width=device-width,initial-scale=1, maximum-scale=1')
+        title= title
+        link(rel='stylesheet', href='/stylesheets/normalize.css')
+        link(rel='stylesheet',href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700')
+        link(rel='stylesheet', href='/stylesheets/estilos.css')
+        link(rel='stylesheet', href='/stylesheets/responsive.css')
+    body
+        header
+            figure#logo
+                img(src='/images/logo.png')
+            h1#titulo_header Puls3: Comunidad de gente cool, atractiva y millonaria
+            figure#avatar
+                img(src='../avatar.jpg')
+                figcaption
+        nav
+            ul
+                li#fechita_nav
+                    a(href='#')
+                li
+                    a(href='#') Python
+                li
+                    a(href='#') HTML5
+                li
+                    a(href='#') JavaScript
+                li
+                    a(href='#') CSS3
+                li#publicar_nav
+                    a(href='#') Publicar
+        section#contenido
+            block content
+        footer
+            p
+                strong Powered by Santiago N. Córdoba
+            p Mejorando.la Curso de diseño web online
