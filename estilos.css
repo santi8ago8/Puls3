@@ -133,15 +133,26 @@ nav ul li a {
     min-height: 128px;
     position: relative;
 }
-
+#contenido .item .datos_item{
+    text-align: right;
+}
 #contenido .item .datos_item .tag_item {
     background: #22BCE0;
     border-radius: .5em;
+    float: left;
     color: white;
     padding: .2em .5em;
     text-decoration: none;
 }
+#contenido .item .datos_item .comentarios_item{
+    background: #878787;
+    border-radius: 4px;
+    color:white;
+    padding: 4px;
+    text-decoration: none;
+}
 #contenido .item .datos_item .guardar_item{
+    margin: 0 1em;
     text-decoration: none;
 }
 #contenido .item .datos_item .guardar_item:after{
