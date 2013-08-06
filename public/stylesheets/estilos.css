@@ -277,6 +277,20 @@ nav ul li a {
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
 }
+#loggin{
+    float:right;
+    text-align: center;
+}
+#loggin button{
+    width: 100%;
+}
+#loggin input{
+    display: block;
+    width: 100px;
+    margin: 2px;
+    background-color: inherit;
+    color:#ffffff;
+}
 
 .clear {
     clear: both;

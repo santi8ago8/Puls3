@@ -11,14 +11,20 @@ html(lang='es',ng-app='Puls3')
         script(src='/javascripts/angular.js',type='text/javascript')
         script(src='/javascripts/angular-resource.js',type='text/javascript')
         script(src='/javascripts/engine.js',type='text/javascript')
-    body(ng-controller='AllController')
+    body(ng-controller='AllController',ng-init='Init()')
         header
             figure#logo
                 img(src='/images/logo.png')
 
-            figure#avatar
+            figure#avatar(ng-show='isLogged')
                 img(src='../images/avatar.jpg')
                 figcaption
+            div#loggin(ng-hide='isLogged')
+                form(ng-submit='User.Enter()')
+                    input(type='text',ng-model='newUser.user')
+                    input(type='password',ng-model='newUser.password')
+                    button(type='submit') Ingresar
+
             h1#titulo_header Puls3: Comunidad de gente cool, atractiva y millonaria
             .clear
         nav

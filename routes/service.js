@@ -8,6 +8,11 @@
 
 var Usuario = require('/schems.js').Usuario;
 
+exports.getstate=function(a,b){
+    console.log(a);
+    b.json(a.session);
+};
+
 exports.register=function(a,b){
-    
+    console.log(a);
 };
