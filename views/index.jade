@@ -3,7 +3,7 @@ extends layout
 block content
     #loadicon
         div
-    div.reload(ng-click='add();')
+    div.reload(ng-click='User.add();')
         p reload
     ul
         li(ng-repeat='user in users') {{user}}

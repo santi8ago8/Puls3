@@ -7,40 +7,20 @@
  */
 
 
-var puls3 = angular.module('Puls3', []);
+var puls3 = angular.module('Puls3', ['ngResource']);
 
-puls3.config(['$httpProvider', function ($httpProvider) {
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}
-]);
-
-var AllController = function ($scope, $http, $templateCache) {
+puls3.controller('AllController', function ($scope, $resource) {
     console.log('ain');
-
-    $scope.list = function () {
-        var url = '/service/users/santi';
-        $http.post(url).success(function (data) {
-            $scope.users = data;
-            window.scope=$scope;
-        });
-    };
-    $scope.add=(function(){
-        $scope.users.push(Math.random());
+    $scope.User = $resource('/service/:action', {}, {
+        GetPosts: {method: 'post', params: {action: 'allposts'}, isArray: true}
     });
-    $scope.list();
-};
-/*
- var app = angular.module('User', ['ngResource']);
- app.run(
- function ($resource) {
- var User = $resource(
- '/service/users',
- {},
- {}
- );
+    $scope.User.add = function () {
+        $scope.users.push(Math.random());
+    };
+    $scope.User.GetPosts(function (data) {
+        console.log('ain1');
+        $scope.users = data;
+    });
 
- User.query();
 
- }
- );*/
+});
