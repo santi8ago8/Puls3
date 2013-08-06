@@ -1,5 +1,5 @@
 !!!5
-html(lang='es')
+html(lang='es',ng-app='Puls3')
     head
         meta(charset='utf-8')
         meta(name='viewport',content='width=device-width,initial-scale=1, maximum-scale=1')
@@ -8,7 +8,10 @@ html(lang='es')
         link(rel='stylesheet',href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700')
         link(rel='stylesheet', href='/stylesheets/estilos.css')
         link(rel='stylesheet', href='/stylesheets/responsive.css')
-    body
+        script(src='/javascripts/angular.js',type='text/javascript')
+        script(src='/javascripts/angular-resource.js',type='text/javascript')
+        script(src='/javascripts/engine.js',type='text/javascript')
+    body(ng-controller='AllController')
         header
             figure#logo
                 img(src='/images/logo.png')

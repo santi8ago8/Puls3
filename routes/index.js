@@ -7,5 +7,5 @@ exports.index = function (req, res) {
 };
 exports.users = function (req, res) {
     console.log('json')
-    res.json({hola: 2, juan: 7});
+    res.json([{hola: 2, juan: 7},{name:'juan'}]);
 };
