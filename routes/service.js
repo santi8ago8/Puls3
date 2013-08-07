@@ -55,8 +55,8 @@ exports.getPosts = function (a, b) {
     var query = {};
     if (a.body.category) query.category = a.body.category;
     Post.find(query, function (err, res) {
-
-        b.json(res)
+        tardetosend(b,res);
+      //  b.json(res)
 
     });
 
@@ -71,7 +71,7 @@ function tardetosend(b, res) {
     }, 1000)
 
 }
-
+/*
 console.log(Post);
 new Post({
     user: "asd",
@@ -81,4 +81,4 @@ new Post({
     //_idPost:
 }).save(function (a, b) {
         console.log([a, b]);
-    });
+    });*/
