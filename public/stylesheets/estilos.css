@@ -283,11 +283,13 @@ nav ul li a {
 }
 #loggin button{
     width: 100%;
+    font-size: 0.8em;
 }
 #loggin input{
     display: block;
     width: 100px;
     margin: 2px;
+    font-size: 0.8em;
     background-color: inherit;
     color:#ffffff;
 }

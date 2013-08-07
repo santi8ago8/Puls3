@@ -1,9 +1,8 @@
 extends layout
 
 block content
-    #loadicon
+    #loadicon(ng-show='isLoading')
         div
-    div.reload(ng-click='User.add();')
-        p reload
+
     ul
-        li(ng-repeat='user in users') {{user}}
+        li(ng-repeat='post in posts') {{post}}

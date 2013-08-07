@@ -18,7 +18,7 @@ html(lang='es',ng-app='Puls3')
 
             figure#avatar(ng-show='isLogged')
                 img(src='../images/avatar.jpg')
-                figcaption
+                figcaption(ng-click='User.exit()')
             div#loggin(ng-hide='isLogged')
                 form(ng-submit='User.Enter()')
                     input(type='text',ng-model='newUser.user')
@@ -39,7 +39,7 @@ html(lang='es',ng-app='Puls3')
                     a(href='#') JavaScript
                 li
                     a(href='#') CSS3
-                li#publicar_nav
+                li#publicar_nav(ng-show='isLogged')
                     a(href='#') Publicar
         section#contenido
             block content

@@ -14,24 +14,29 @@ var schema = mongoose.Schema(
         password: {type: String},
         posts: [
             {
+                _idPost: {type: mongoose.Schema.Types.ObjectId},
                 title: {type: String},
                 content: {type: String},
                 points: {type: Number, default: 0},
                 date: {type: Number, default: 0},
                 coments: [
                     {
-                        name:{type:String},
-                        coment:{type:String},
-                        date:{type:Number}
+                        name: {type: String},
+                        coment: {type: String},
+                        date: {type: Number}
                     }
                 ]
             }
         ],
-        myfavorites:[
+        myfavorites: [
 
         ]
     }
 );
 
+var getNewId = function () {
+    return new mongoose.Shema.Types.ObjectId();
+
+};
 var Usuario = mongoose.model('Puls3User', schema);
 exports.Usuario = Usuario;

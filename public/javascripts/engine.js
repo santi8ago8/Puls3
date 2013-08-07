@@ -13,29 +13,38 @@ puls3.controller('AllController', function ($scope, $resource) {
     console.log('ain');
 
     $scope.User = $resource('/service/:action', {}, {
-        GetState: {method: 'post', params: {action:'getstate'}},
-        GetPosts: {method: 'post', params: {action: 'allposts'}, isArray: true}
+        GetState: {method: 'post', params: {action: 'getstate'}},
+        GetPosts: {method: 'post', params: {action: 'allposts'}, isArray: true},
+        Login: {method: 'post', params: {action: 'login'}},
+        Exit: {method: 'post', params: {action: 'exit'}}
     });
 
     $scope.Init = function () {
-        $scope.User.GetState(
+        $scope.isLoading = true;
+        $scope.User.GetState({ain: 'teamo'},
             function (response) {
-                console.log(response);
+                //console.log(response);
+                $scope.isLogged = response.logged;
             }
         )
     };
 
-    $scope.User.add = function () {
-        $scope.users.push(Math.random());
-        $scope.isLogged = true;
-    };
+
     $scope.User.GetPosts(function (data) {
         console.log('ain1');
-        $scope.users = data;
+        $scope.posts = data;
+        $scope.isLoading = false;
     });
     $scope.User.Enter = function () {
-        console.log($scope.newUser);
+        $scope.User.Login($scope.newUser, function (r) {
+            //console.log(r);
+            $scope.isLogged = r.logged
+        });
+    };
+    $scope.User.exit = function () {
+        $scope.User.Exit(function () {
+            $scope.isLogged = false;
+        });
     }
-
 
 });
