@@ -19,7 +19,7 @@ html(lang='es',ng-app='Puls3')
             figure#avatar(ng-show='isLogged')
                 img(src='../images/avatar.jpg')
                 figcaption(ng-click='User.exit()')
-            div#loggin(ng-hide='isLogged')
+            div#loggin(ng-hide='isLogged',ng-show='isLoadingHeader && !isLogged')
                 form(ng-submit='User.Enter()')
                     input(type='text',ng-model='newUser.user')
                     input(type='password',ng-model='newUser.password')
@@ -30,15 +30,15 @@ html(lang='es',ng-app='Puls3')
         nav
             ul
                 li#fechita_nav
-                    a(href='#')
+                    a(href='#',ng-click='GetPosts()')
                 li
-                    a(href='#') Python
+                    a(href='#',ng-click='GetPosts("Python")') Python
                 li
-                    a(href='#') HTML5
+                    a(href='#',ng-click='GetPosts("html5")') HTML5
                 li
-                    a(href='#') JavaScript
+                    a(href='#',ng-click='GetPosts("javascript")') JavaScript
                 li
-                    a(href='#') CSS3
+                    a(href='#',ng-click='GetPosts("css3")') CSS3
                 li#publicar_nav(ng-show='isLogged')
                     a(href='#') Publicar
         section#contenido

@@ -208,6 +208,7 @@ nav ul li a {
 
 #contenido .item .imagen_item img {
     width: 96px;
+    float: left;
 }
 
 #contenido .item .titulo_item {

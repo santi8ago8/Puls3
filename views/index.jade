@@ -4,5 +4,21 @@ block content
     #loadicon(ng-show='isLoading')
         div
 
-    ul
-        li(ng-repeat='post in posts') {{post}}
+    article.item(ng-repeat='post in posts')
+        figure.imagen_item
+            img(src='/images/imagen.jpg')
+        h2.titulo_item
+            a(href="#") {{post.title}}
+        p.autor_item Por
+            a(href='#') {{post.user}}
+        p.datos_item
+            a.tag_item(href='#') {{post.category}}
+            span.fecha_item Hace {{post.date}}
+            a.comentarios_item(href="#") {{post.coments.length}}
+            a.guardar_item(href="#")
+        p.votacion
+            a.up(href="")
+            |{{post.points}}
+            a.down(href="")
+
+    p(ng-show='posts.length==0') No hay posts

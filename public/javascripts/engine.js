@@ -21,20 +21,25 @@ puls3.controller('AllController', function ($scope, $resource) {
 
     $scope.Init = function () {
         $scope.isLoading = true;
+        $scope.isLoadingHeader = false;
         $scope.User.GetState({ain: 'teamo'},
             function (response) {
                 //console.log(response);
+                $scope.isLoadingHeader = true;
                 $scope.isLogged = response.logged;
             }
         )
     };
+    $scope.GetPosts = function (category) {
+        $scope.isLoading = true;
+        $scope.User.GetPosts({category: category}, function (data) {
+            console.log('ain1');
+            $scope.posts = data;
+            $scope.isLoading = false;
+        });
+    };
+    $scope.GetPosts();
 
-
-    $scope.User.GetPosts(function (data) {
-        console.log('ain1');
-        $scope.posts = data;
-        $scope.isLoading = false;
-    });
     $scope.User.Enter = function () {
         $scope.User.Login($scope.newUser, function (r) {
             //console.log(r);

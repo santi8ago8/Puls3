@@ -8,6 +8,7 @@
 var mongoose = require('mongoose');
 var db = mongoose.connection;
 var Usuario = require('./schemas.js').Usuario;
+var Post = require('./schemas.js').Post;
 
 exports.getstate = function (a, b) {
     //console.log(a);
@@ -51,16 +52,11 @@ exports.exit = function (a, b) {
 };
 
 exports.getPosts = function (a, b) {
-    Usuario.find({}, {posts: "posts"}, function (err, res) {
-        var posts = [];
-        for (var i = 0; i < res.length; i++) {
-            var obj = res[i];
-            for (var j = 0; j < obj.posts.length; j++) {
-                var post = obj.posts[j];
-                posts.push(post);
-            }
-        }
-        b.json(posts)
+    var query = {};
+    if (a.body.category) query.category = a.body.category;
+    Post.find(query, function (err, res) {
+
+        b.json(res)
 
     });
 
@@ -75,10 +71,14 @@ function tardetosend(b, res) {
     }, 1000)
 
 }
-/*
-Usuario.update({name:"asd"}, {$push: {posts: {
-    title: 'holadesdenodejs5656'
+
+console.log(Post);
+new Post({
+    user: "asd",
+    title: 'holadesdenodejs5656',
+    category: 'python',
+    content: "hola contenido."
     //_idPost:
-}}}, {multi: false}, function (a, b) {
-    console.log([a, b]);
-});*/
+}).save(function (a, b) {
+        console.log([a, b]);
+    });
