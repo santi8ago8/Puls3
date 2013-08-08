@@ -20,7 +20,7 @@ exports.login = function (a, b) {
     Usuario.find({name: a.body.user},
         function (err, res) {
             if (res.length == 0) {
-                //todo insert
+                //tod0 insert ok
                 var nuser = new Usuario({
                     name: a.body.user,
                     password: a.body.password
@@ -64,11 +64,11 @@ exports.getPosts = function (a, b) {
 
 
 function tardetosend(b, res) {
-    console.log(res);
+    //console.log(res);
     setTimeout(function () {
         b.json(res);
-        console.log(res);
-    }, 1000)
+      //  console.log(res);
+    }, 500)
 
 }
 /*

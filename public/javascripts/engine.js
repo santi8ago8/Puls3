@@ -22,7 +22,7 @@ puls3.controller('AllController', function ($scope, $resource) {
     $scope.Init = function () {
         $scope.isLoading = true;
         $scope.isLoadingHeader = false;
-        $scope.User.GetState({ain: 'teamo'},
+        $scope.User.GetState({ain: ''},
             function (response) {
                 //console.log(response);
                 $scope.isLoadingHeader = true;
