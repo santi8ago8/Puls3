@@ -17,8 +17,10 @@ html(lang='es',ng-app='Puls3')
                 img(src='/images/logo.png')
 
             figure#avatar(ng-show='isLogged')
-                img(src='../images/avatar.jpg')
-                figcaption(ng-click='User.exit()')
+                form
+                    input(type='hidden',name='fileUpload',id='fileUpload',style='')
+                    img(src='{{imgUser}}')
+                    figcaption(ng-click='User.exit()')
             div#loggin(ng-hide='isLogged',ng-show='isLoadingHeader && !isLogged')
                 form(ng-submit='User.Enter()')
                     input(type='text',ng-model='newUser.user')

@@ -27,11 +27,13 @@ puls3.controller('AllController', function ($scope, $resource) {
                 //console.log(response);
                 $scope.isLoadingHeader = true;
                 $scope.isLogged = response.logged;
+                $scope.imgUser = response.imagen;
             }
         )
     };
     $scope.GetPosts = function (category) {
         $scope.isLoading = true;
+        $scope.posts = undefined;
         $scope.User.GetPosts({category: category}, function (data) {
             console.log('ain1');
             $scope.posts = data;
@@ -43,7 +45,8 @@ puls3.controller('AllController', function ($scope, $resource) {
     $scope.User.Enter = function () {
         $scope.User.Login($scope.newUser, function (r) {
             //console.log(r);
-            $scope.isLogged = r.logged
+            $scope.isLogged = r.logged;
+            $scope.imgUser = r.imagen;
         });
     };
     $scope.User.exit = function () {

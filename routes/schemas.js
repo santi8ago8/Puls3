@@ -5,13 +5,14 @@
  * Time: 20:22
  * To change this template use File | Settings | File Templates.
  */
-
+var defImage="/images/drag.png";
 var mongoose = require('mongoose');
-
+exports.defImage=defImage;
 var schema = mongoose.Schema(
     {
         name: {type: String},
         password: {type: String},
+        imagen: {type: String,default:defImage},
         myfavorites: [
 
         ]

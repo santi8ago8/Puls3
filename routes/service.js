@@ -12,7 +12,7 @@ var Post = require('./schemas.js').Post;
 
 exports.getstate = function (a, b) {
     //console.log(a);
-    b.json({logged: a.session.logged});
+    b.json({logged: a.session.logged, imagen: a.session.imagen});
     //tardetosend(b, {logged: a.session.logged});
 };
 
@@ -27,13 +27,17 @@ exports.login = function (a, b) {
                 });
                 nuser.save();
                 a.session.logged = true;
+                a.session.user = nuser.name;
+                a.session.imagen = require('./schemas.js').defImage;
                 // a.session.
-                b.json({logged: true});
+                b.json({logged: true, imagen: a.session.imagen});
             }
             else {
                 if (res[0].password == a.body.password) {
-                    b.json({logged: true});
                     a.session.logged = true;
+                    a.session.user = res[0].name;
+                    a.session.imagen = res[0].imagen;
+                    b.json({logged: true, imagen: a.session.imagen});
                 }
                 else {
                     b.json({logged: false});
@@ -55,8 +59,8 @@ exports.getPosts = function (a, b) {
     var query = {};
     if (a.body.category) query.category = a.body.category;
     Post.find(query, function (err, res) {
-        tardetosend(b,res);
-      //  b.json(res)
+        tardetosend(b, res);
+        //  b.json(res)
 
     });
 
@@ -67,18 +71,18 @@ function tardetosend(b, res) {
     //console.log(res);
     setTimeout(function () {
         b.json(res);
-      //  console.log(res);
+        //  console.log(res);
     }, 500)
 
 }
 /*
-console.log(Post);
-new Post({
-    user: "asd",
-    title: 'holadesdenodejs5656',
-    category: 'python',
-    content: "hola contenido."
-    //_idPost:
-}).save(function (a, b) {
-        console.log([a, b]);
-    });*/
+ console.log(Post);
+ new Post({
+ user: "asd",
+ title: 'holadesdenodejs5656',
+ category: 'python',
+ content: "hola contenido."
+ //_idPost:
+ }).save(function (a, b) {
+ console.log([a, b]);
+ });*/

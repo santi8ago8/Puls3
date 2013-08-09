@@ -3,7 +3,7 @@
  */
 
 exports.index = function (req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: 'Puls3' });
 };
 
 exports.users = function (req, res) {
