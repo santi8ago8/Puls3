@@ -33,7 +33,11 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
+//rutas accesibles
 app.get('/', routes.index);
+app.get('/publish',routes.publish);
+
+//service : ->
 app.post("/service/users/:user", routes.users);
 app.post("/service/allposts", service.getPosts);
 app.post("/service/getstate", service.getstate);

@@ -16,7 +16,7 @@ html(lang='es',ng-app='Puls3')
             figure#logo
                 img(src='/images/logo.png')
 
-            figure#avatar(ng-show='isLogged')
+            figure#avatar(ng-show='isLogged',title='Arrastra tu foto de perfil hasta aqui')
                 form
                     input(type='hidden',name='fileUpload',id='fileUpload',style='')
                     img(src='{{imgUser}}')

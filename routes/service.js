@@ -59,8 +59,8 @@ exports.getPosts = function (a, b) {
     var query = {};
     if (a.body.category) query.category = a.body.category;
     Post.find(query, function (err, res) {
-        tardetosend(b, res);
-        //  b.json(res)
+        //tardetosend(b, res);
+        b.json(res)
 
     });
 
