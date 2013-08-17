@@ -21,4 +21,4 @@ block content
             |{{post.points}}
             a.down(href="")
 
-    p(ng-show='posts.length==0') No hay posts
+    p(ng-show='posts.length==0 && !isLoading') No hay posts

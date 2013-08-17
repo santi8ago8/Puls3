@@ -43,7 +43,7 @@ html(lang='es',ng-app='Puls3')
                     a(href='#',ng-click='GetPosts("javascript")') JavaScript
                 li
                     a(href='#',ng-click='GetPosts("css3")') CSS3
-                li#publicar_nav(ng-show='isLogged')
+                li#publicar_nav(ng-show='isLogged',ng-click='InitPublisher()')
                     a(href='#') Publicar
         section#contenido
             block content

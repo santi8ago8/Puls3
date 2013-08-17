@@ -12,7 +12,7 @@ exports.publish = function (req, res) {
         res.render('publish', {title: 'Publish, Puls3'});
     }
     else {
-        res.writeHead({'Location': 'http://localhost:3000'});
+        res.writeHead(300,{'Location': 'http://localhost:3000'});
         res.end();
     }
 };

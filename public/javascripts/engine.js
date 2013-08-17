@@ -89,8 +89,10 @@ puls3.controller('AllController', function ($scope, $resource, $http) {
                             .error(function (data, status, headers, config) {
                                 alert("failed to load image!");
                             });
-
-
+                    else{
+                        imagen.removeClass('graginside');
+                        alert('invalid file type!');
+                    }
                 }
             };
             var elem = document.getElementById('imageProfile');
@@ -99,5 +101,12 @@ puls3.controller('AllController', function ($scope, $resource, $http) {
             elem.addEventListener("dragover", logs, false);
             elem.addEventListener("drop", logs, false);
         }
+    }
+
+    $scope.InitPublisher=function(){
+        $scope.isLoading = true;
+        $http.get('/publish',function(response){
+
+        });
     }
 });

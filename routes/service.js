@@ -10,7 +10,7 @@ var db = mongoose.connection;
 var Usuario = require('./schemas.js').Usuario;
 var Post = require('./schemas.js').Post;
 var fs = require('fs');
-var gm=require('gm');
+var gm = require('gm');
 
 exports.getstate = function (a, b) {
     //console.log(a);
@@ -75,31 +75,24 @@ exports.uploadfile = function (a, b) {
     var ind = path.lastIndexOf('\\') + 1;
     var newPath = "./public/images/users/" + path.substr(ind) + '.' + file.type.replace("image/", '');
     var newPath2 = "./public/images/users/" + path.substr(ind) + '_2.' + file.type.replace("image/", '');
-    var visiblePath="/images/users/" + path.substr(ind) + '.' + file.type.replace("image/", '');
+    var visiblePath = "/images/users/" + path.substr(ind) + '.' + file.type.replace("image/", '');
 
 
-    fs.rename(path,newPath,function(err){
+    fs.rename(path, newPath, function (err) {
 
-        gm(newPath)
-            .resize(null,100)
-            .write(newPath,function(err){
-                console.log(err);
-                console.log(arguments);
-                Usuario.update(
-                    {name: a.session.user}, //find
-                    { //update
-                        $set:{
-                            imagen:visiblePath
-                        }
-                    },
-                    function(err){
-                        if (err)console.log(err);
-                        a.session.imagen=visiblePath;
-                        b.json({});
-                    }
-                );
-            });
-
+        Usuario.update(
+            {name: a.session.user}, //find
+            { //update
+                $set: {
+                    imagen: visiblePath
+                }
+            },
+            function (err) {
+                if (err)console.log(err);
+                a.session.imagen = visiblePath;
+                b.json({});
+            }
+        );
     })
 
 
