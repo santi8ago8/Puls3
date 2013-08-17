@@ -65,8 +65,13 @@ header #avatar figcaption:after {
 
 header #avatar img {
     float: left;
-    width: 50px;
+    height: 50px;
     padding: 0 0;
+}
+header #avatar img.graginside {
+    height: 44px;
+    border: 2px dotted #ffffff;
+    border-radius: 3px;
 }
 
 header #logo img {
@@ -253,6 +258,14 @@ nav ul li a {
 #contenido .item .votacion .up:after {
     content: "\e002";
     color: green;
+}
+
+#imageProfile{
+
+}
+
+#imageProfile .startDrag{
+    border: 1px dotted red;
 }
 
 #loadicon {

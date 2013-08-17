@@ -9,7 +9,8 @@
         "express": "3.3.3",
         "jade": "*",
         "stylus": "*",
-        "mongoose": "*"
+        "mongoose": "*",
+        "gm":""
     },
     "repository": {
         "type": "git",

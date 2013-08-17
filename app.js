@@ -43,6 +43,7 @@ app.post("/service/allposts", service.getPosts);
 app.post("/service/getstate", service.getstate);
 app.post("/service/login", service.login);
 app.post("/service/exit", service.exit);
+app.post('/service/uploadfile',service.uploadfile);
 
 app.get("/posts/:id");
 app.get('/users', user.list);
