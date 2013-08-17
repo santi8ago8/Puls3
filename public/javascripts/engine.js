@@ -63,7 +63,7 @@ puls3.controller('AllController', function ($scope, $resource, $http) {
     var setDrager = function () {
         if (!setdrag) {
             setdrag = true;
-            var imagen=$('#imageProfile img');
+            var imagen = $('#imageProfile img');
             var logs = function (e) {
                 imagen.addClass('graginside');
                 e.stopPropagation();
@@ -89,7 +89,7 @@ puls3.controller('AllController', function ($scope, $resource, $http) {
                             .error(function (data, status, headers, config) {
                                 alert("failed to load image!");
                             });
-                    else{
+                    else {
                         imagen.removeClass('graginside');
                         alert('invalid file type!');
                     }
@@ -103,10 +103,14 @@ puls3.controller('AllController', function ($scope, $resource, $http) {
         }
     }
 
-    $scope.InitPublisher=function(){
-        $scope.isLoading = true;
-        $http.get('/publish',function(response){
+    $scope.InitPublisher = function () {
+        if (!$scope.isCreatingPost) {
 
-        });
+            $scope.isCreatingPost=true;
+        }
+    };
+
+    $scope.publishPost=function(){
+        console.log($scope);
     }
 });

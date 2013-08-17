@@ -4,7 +4,7 @@ block content
     #loadicon(ng-show='isLoading')
         div
 
-    article.item(ng-repeat='post in posts',ng-hide='isLoading')
+    article.item(ng-repeat='post in posts',ng-hide='isLoading && isCreatingPost')
         figure.imagen_item
             img(src='/images/imagen.jpg')
         h2.titulo_item
@@ -21,4 +21,18 @@ block content
             |{{post.points}}
             a.down(href="")
 
-    p(ng-show='posts.length==0 && !isLoading') No hay posts
+    p(ng-show='posts.length==0 && !isLoading && !isCreatingPost') No hay posts
+    section.publish(ng-show='isCreatingPost')
+        form(ng-submit='publishPost()')
+            h2 Título del post:
+            input(type='text',ng-model='newPost.title')
+            h3 Categoria:
+            select(ng-model='newPost.category')
+                option(value='python',selected) Python
+                option(value='html5') HTML5
+                option(value='javascript') JavaScript
+                option(value='css3') CSS3
+                option(value='nodejs') Node.js
+            h3 Contenido:
+            textarea(ng-model='newPost.content')
+            button(type='submit') Publicar

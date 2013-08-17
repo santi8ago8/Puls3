@@ -8,7 +8,6 @@ exports.index = function (req, res) {
 
 exports.publish = function (req, res) {
     if (req.session.logged) {
-        console.log('show');
         res.render('publish', {title: 'Publish, Puls3'});
     }
     else {
