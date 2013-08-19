@@ -320,7 +320,7 @@ nav ul li a {
 }
 .publish textarea{
     width: 100%;
-    height: 400px;
+    height: 200px;
     resize: vertical;
 }
 .publish button{

@@ -38,12 +38,13 @@ app.get('/', routes.index);
 app.get('/publish',routes.publish);
 
 //service : ->
-app.post("/service/users/:user", routes.users);
-app.post("/service/allposts", service.getPosts);
-app.post("/service/getstate", service.getstate);
-app.post("/service/login", service.login);
-app.post("/service/exit", service.exit);
-app.post('/service/uploadfile',service.uploadfile);
+app.post("/api/users/:user", routes.users);
+app.post("/api/allposts", service.getPosts);
+app.post("/api/getstate", service.getstate);
+app.post("/api/login", service.login);
+app.post("/api/exit", service.exit);
+app.post('/api/uploadfile',service.uploadfile);
+app.post('/api/newpost',service.newpost);
 
 app.get("/posts/:id");
 app.get('/users', user.list);

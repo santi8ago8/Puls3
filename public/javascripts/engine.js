@@ -12,18 +12,19 @@ var puls3 = angular.module('Puls3', ['ngResource']);
 puls3.controller('AllController', function ($scope, $resource, $http) {
     console.log('ain');
 
-    $scope.User = $resource('/service/:action', {}, {
+    $scope.User = $resource('/api/:action', {}, {
         GetState: {method: 'post', params: {action: 'getstate'}},
         GetPosts: {method: 'post', params: {action: 'allposts'}, isArray: true},
         Login: {method: 'post', params: {action: 'login'}},
         Exit: {method: 'post', params: {action: 'exit'}},
-        UploadFile: {method: 'post', params: {action: 'uploadfile'}}
+        UploadFile: {method: 'post', params: {action: 'uploadfile'}},
+        NewPost: {method: 'post', params: {action: 'newpost'}}
     });
 
     $scope.Init = function () {
         $scope.isLoading = true;
         $scope.isLoadingHeader = false;
-        $scope.User.GetState(setState)
+        $scope.User.GetState(setState);
 
     };
     var setState = function (response) {
@@ -106,11 +107,16 @@ puls3.controller('AllController', function ($scope, $resource, $http) {
     $scope.InitPublisher = function () {
         if (!$scope.isCreatingPost) {
 
-            $scope.isCreatingPost=true;
+            $scope.isCreatingPost = true;
+
         }
     };
 
-    $scope.publishPost=function(){
+    $scope.publishPost = function () {
         console.log($scope);
+        $scope.User.NewPost({post: $scope.newPost}, function (response) {
+            $scope.GetPosts();
+            $scope.isCreatingPost=false;
+        });
     }
 });

@@ -11,6 +11,7 @@ var Usuario = require('./schemas.js').Usuario;
 var Post = require('./schemas.js').Post;
 var fs = require('fs');
 var gm = require('gm');
+//a.session.user
 
 exports.getstate = function (a, b) {
     //console.log(a);
@@ -54,17 +55,28 @@ exports.login = function (a, b) {
 exports.exit = function (a, b) {
 
     a.session.logged = false;
+    delete a.session.user;
+    delete a.session.imagen;
     b.end();
 };
 
 exports.getPosts = function (a, b) {
     var query = {};
     if (a.body.category) query.category = a.body.category;
-    Post.find(query, function (err, res) {
-        //tardetosend(b, res);
-        b.json(res)
+    Post.find(
+        {$query: query, $orderby: {date: -1}},
+        {    title:true,
+            user:true,
+            category:true,
+            date:true,
+            points: true,
+            "coments.length":true
+        },
+        function (err, res) {
+            //tardetosend(b, res);
+            b.json(res)
 
-    });
+        });
 
 };
 
@@ -98,14 +110,20 @@ exports.uploadfile = function (a, b) {
 
 };
 
-function tardetosend(b, res) {
-    //console.log(res);
-    setTimeout(function () {
-        b.json(res);
-        //  console.log(res);
-    }, 500)
+exports.newpost = function (_, __) {
+    new Post({
+        user: _.session.user,
+        title: _.body.post.title,
+        content: _.body.post.content,
+        category: _.body.post.category,
+        date: new Date().getTime()
+    })
+        .save(function (res, affRows) {
+            __.json({});
+        });
+};
 
-}
+
 /*
  console.log(Post);
  new Post({

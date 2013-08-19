@@ -5,17 +5,14 @@
  * Time: 20:22
  * To change this template use File | Settings | File Templates.
  */
-var defImage="/images/drag.png";
+var defImage = "/images/drag.png";
 var mongoose = require('mongoose');
-exports.defImage=defImage;
+exports.defImage = defImage;
 var schema = mongoose.Schema(
     {
         name: {type: String},
         password: {type: String},
-        imagen: {type: String,default:defImage},
-        myfavorites: [
-
-        ]
+        imagen: {type: String, default: defImage}
     }
 );
 
@@ -24,8 +21,11 @@ var schemaPost = mongoose.Schema({
     user: {type: String},
     title: {type: String},
     content: {type: String},
-    category: {type: String},
-    points: {type: Number, default: 0},
+    category: {type: String, default: 'Node.js'},
+    points: { type: Number, default: 0},
+    aggregators: [],
+    subtractors: [],
+    favorites: [],
     date: {type: Number, default: 0},
     coments: [
         {
