@@ -10,7 +10,7 @@ var db = mongoose.connection;
 var Usuario = require('./schemas.js').Usuario;
 var Post = require('./schemas.js').Post;
 var fs = require('fs');
-var gm = require('gm');
+//var gm = require('gm');
 //a.session.user
 
 exports.getstate = function (a, b) {
@@ -84,7 +84,7 @@ exports.uploadfile = function (a, b) {
     // console.log(a);
     var file = a.files.fileimage;
     var path = file.path;
-    var ind = path.lastIndexOf('\\') + 1;
+    var ind = path.lastIndexOf('/') + 1;
     var newPath = "./public/images/users/" + path.substr(ind) + '.' + file.type.replace("image/", '');
     var newPath2 = "./public/images/users/" + path.substr(ind) + '_2.' + file.type.replace("image/", '');
     var visiblePath = "/images/users/" + path.substr(ind) + '.' + file.type.replace("image/", '');

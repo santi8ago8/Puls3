@@ -74,7 +74,7 @@ puls3.controller('AllController', function ($scope, $resource, $http) {
                     if (/image\/\w+/.test(file.type))
                         $http({
                             method: 'POST',
-                            url: "/service/uploadfile",
+                            url: "/api/uploadfile",
                             headers: { 'Content-Type': false },
                             transformRequest: function (data) {
                                 var formData = new FormData();
